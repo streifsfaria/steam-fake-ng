@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'; 
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
@@ -19,41 +19,19 @@ export class NavbarComponent {
     ngOnInit() {
         this.items = [
             {
-                label: 'Router',
-                icon: 'pi pi-palette',
+                label: 'Jogos',
+                icon: 'pi pi-discord',
                 items: [
                     {
-                        label: 'Installation',
-                        route: '/installation'
+                        label: 'Categorias',
+                        route: '/categorias'
                     },
                     {
-                        label: 'Configuration',
-                        route: '/configuration'
+                        label: 'Jogos',
+                        route: '/jogos'
                     }
                 ]
             },
-            {
-                label: 'Programmatic',
-                icon: 'pi pi-link',
-                command: () => {
-                    this.router.navigate(['/installation']);
-                }
-            },
-            {
-                label: 'External',
-                icon: 'pi pi-home',
-                items: [
-                    {
-                        label: 'Angular',
-                        url: 'https://angular.io/'
-                    },
-                    {
-                        label: 'Vite.js',
-                        url: 'https://vitejs.dev/'
-                    }
-                ]
-            }
         ];
     }
 }
-
