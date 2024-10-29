@@ -8,10 +8,8 @@ import { PanelModule } from 'primeng/panel';
 import { PasswordModule } from 'primeng/password';
 import { ToastModule } from 'primeng/toast';
 
-
-
 @Component({
-  selector: 'app-componentes',
+  selector: 'app-login',
   standalone: true,
   imports: [
     InputTextModule,
@@ -25,25 +23,31 @@ import { ToastModule } from 'primeng/toast';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class ComponentesComponent {
-  login: string = '';
-  senha: string = '';
+export class LoginComponent {
+  login: string = "";
+  senha: string = "";
 
   constructor(
+    // Necessário para poder apresentar mensagem de feeback para o usuário
     private messageService: MessageService,
+    // Necessário para poder redirecionar para outra rota
     private router: Router,
-  ) {}
+  ) { }
 
-  enviar(){
+  enviar() {
+    // Verificar se o login e senha estão corretos
     if (this.login == "admin" && this.senha == "batatinha") {
+      // Redirecionar para a tela da home
       this.router.navigate(["/home"])
-
+    } else if (this.login == "gamer" && this.senha == "batatinha") {
+      this.router.navigate(["/grid"])
     } else {
-      this.messageService.add({ severity: 'error', summary: 'erro', detail: 'login e/ou senha invalida' + this.login});
+      // Apresentar mensagem que o login/senha estão inválidos
+      this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Login e/ou Senha inválidas' });
     }
   }
 
-  redirecionarCadastrar(){
+  redirecionarCadastrar() {
     this.router.navigate(["/cadastrar"])
   }
 }

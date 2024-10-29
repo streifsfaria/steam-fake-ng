@@ -20,7 +20,7 @@ interface Categoria{
 export class ListaCategoriaComponent {
   nome: string = "";
   categorias!: Categoria[];
-  modalApresentada: boolean = false;
+  modalApresentada: boolean = false; 
 
   ngOnInit(){
     this.categorias = [
